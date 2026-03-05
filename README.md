@@ -4,7 +4,7 @@ Glance widget to display the latest [Nebula](https://nebula.tv/) videos from sel
 
 ## Carousel Style
 
-![widget screenshot](preview-carousel.png)
+![widget screenshot](preview.png)
 
 ```yaml
 - type: custom-api
