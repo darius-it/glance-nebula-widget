@@ -10,7 +10,7 @@ Glance widget to display the latest [Nebula](https://nebula.tv/) videos from sel
 - type: custom-api
   title: Nebula
   title-url: https://nebula.tv/
-  cache: 15m
+  cache: 1h
   frameless: true
   url: https://content.api.nebula.app/video_episodes/
   parameters:
@@ -71,7 +71,7 @@ Full file: `nebula-widget-carousel.yml`
 - type: custom-api
   title: Nebula
   title-url: https://nebula.tv/
-  cache: 15m
+  cache: 1h
   frameless: true
   url: https://content.api.nebula.app/video_episodes/
   parameters:
@@ -137,5 +137,12 @@ Full file: `nebula-widget-list.yml`
 - `collapse_after`: list-only collapse threshold (default: `5`)
 - `channel-ids`: only include videos from these channel IDs
 
+#### How to find a channel ID
+1. Go to the channel's page on Nebula (e.g. https://nebula.tv/channel/half-as-interesting)
+2. Open dev tools and go to the Network tab
+3. Refresh the page and look for a request to `https://content.api.nebula.app/video_channels/` (you can filter by "video_channels" in the Network tab)
+4. Click on that request and look at the "Response" tab, where you'll see a request which includes the channel ID (e.g. `video_channel:8f3a2a56-3f9f-4ce0-b105-ede41688d84b` for Half as Interesting). It can look something like this: ![channel_id_screenshot](find_channel_id_devtools.png)
+
 ## Notes
 - The Nebula endpoint for the latest videos only fetches 100 at most, meaning that sometimes you won't hit the maximum item count (depending on how many channel ids you have and frequency of video releases)
+- This endpoint is unofficial and there is no official public Nebula API, so it may break at any time if they change their internal APIs. Please use this API carefully and do not make excessive requests to it.
