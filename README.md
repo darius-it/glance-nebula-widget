@@ -64,7 +64,7 @@ Full file: `nebula-widget-carousel.yml`
 
 ## List Style
 
-![widget screenshot](preview-list.png)
+<img src="preview-list.png" alt="widget screenshot" height="400">
 
 ```yaml
 - type: custom-api
