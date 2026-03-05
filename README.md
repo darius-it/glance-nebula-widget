@@ -22,7 +22,6 @@ Glance widget to display the latest Nebula videos from selected creators/channel
       - video_channel:9cea6296-223e-4c7e-a245-d96db75de32f # Jet Lag: The Game
       - video_channel:8f3a2a56-3f9f-4ce0-b105-ede41688d84b # Half as Interesting
       - video_channel:fe4d9c1c-017b-494c-9afc-e79e6859b211 # Wendover Productions
-
   template: |
     {{ if ne .Response.StatusCode 200 }}
       <div class="widget-content-frame padding-widget color-negative">Failed to fetch Nebula videos.</div>
@@ -81,12 +80,7 @@ Full file: `nebula-widget-carousel.yml`
     max_items: 12
     collapse_after: 5
     channel-ids:
-        - video_channel:4e43fa7f-3601-481c-ae25-f2340ef7894c # Morning Brew
-        - video_channel:702bb67a-c7c3-4b70-8ad3-f40ad79b8683 # TechAltar
-        - video_channel:736edbca-580e-4a5c-bd9a-9a2eb527b0c7 # The Friday Checkout
         - video_channel:9cea6296-223e-4c7e-a245-d96db75de32f # Jet Lag: The Game
-        - video_channel:1c48f991-351f-4db5-9d20-e3394f2d182a # Downie Live
-        - video_channel:eb38fd48-7720-4dbd-87b5-70d0b247f005 # Downie Express
         - video_channel:8f3a2a56-3f9f-4ce0-b105-ede41688d84b # Half as Interesting
         - video_channel:fe4d9c1c-017b-494c-9afc-e79e6859b211 # Wendover Productions
   template: |
