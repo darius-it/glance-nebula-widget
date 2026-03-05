@@ -6,9 +6,10 @@
   url: https://content.api.nebula.app/video_episodes/
   parameters:
     ordering: -published_at
-    page_size: "100"
+    page_size: "30"
   options:
-    channel-ids: 
+    max_items: 12
+    channel-ids:
       - video_channel:9cea6296-223e-4c7e-a245-d96db75de32f # Jet Lag: The Game
       - video_channel:8f3a2a56-3f9f-4ce0-b105-ede41688d84b # Half as Interesting
       - video_channel:fe4d9c1c-017b-494c-9afc-e79e6859b211 # Wendover Productions
@@ -18,10 +19,14 @@
       <div class="widget-content-frame padding-widget color-negative">Failed to fetch Nebula videos.</div>
     {{ else }}
       {{ $channels := .Options.JSON "channel-ids" }}
+      {{ $maxItems := (index .Options "max_items") }}
+      {{ if not $maxItems }}{{ $maxItems = 12 }}{{ end }}
+      {{ $shown := 0 }}
+
       <div class="carousel-container">
         <div class="cards-horizontal carousel-items-container">
           {{ range $video := .JSON.Array "results" }}
-            {{ if ne "" (findMatch (concat "(^|[^A-Za-z0-9:_-])" ($video.String "channel_id") "([^A-Za-z0-9:_-]|$)") $channels) }}
+            {{ if and (lt $shown $maxItems) (ne "" (findMatch (concat "(^|[^A-Za-z0-9:_-])" ($video.String "channel_id") "([^A-Za-z0-9:_-]|$)") $channels)) }}
               <div class="card widget-content-frame thumbnail-parent">
                 {{ if $video.Exists "images.thumbnail.src" }}
                   <img class="video-thumbnail thumbnail" loading="lazy" src="{{ $video.String "images.thumbnail.src" }}" alt="">
@@ -40,6 +45,7 @@
                   </ul>
                 </div>
               </div>
+              {{ $shown = add $shown 1 }}
             {{ end }}
           {{ end }}
         </div>
