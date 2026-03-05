@@ -1,6 +1,6 @@
 # glance-nebula-widget
 
-Glance widget to display the latest Nebula videos from selected creators/channels.
+Glance widget to display the latest [Nebula](https://nebula.tv/) videos from selected creators/channels.
 
 ## Carousel Style
 
