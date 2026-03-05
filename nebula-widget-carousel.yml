@@ -1,7 +1,7 @@
 - type: custom-api
   title: Nebula
   title-url: https://nebula.tv/
-  cache: 15m
+  cache: 1h
   frameless: true
   url: https://content.api.nebula.app/video_episodes/
   parameters:
