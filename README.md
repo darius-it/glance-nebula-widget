@@ -135,3 +135,5 @@ Full file: `nebula-widget-list.yml`
 - `collapse_after`: list-only collapse threshold (default: `5`)
 - `channel-ids`: only include videos from these channel IDs
 
+## Notes
+- The Nebula endpoint for the latest videos only fetches 100 at most, meaning that sometimes you won't hit the maximum item count (depending on how many channel ids you have and frequency of video releases)
